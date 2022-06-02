@@ -1,0 +1,39 @@
+.container__alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    animation: parpadeo 1s infinite;
+    transition: background-color 0.5s;
+}
+
+.container__alert .numero{
+    color: var(--Cuarto-Color, white);
+    font-size: 15rem;
+    font-weight: extra-bold;
+    animation: parpadeo2 1s infinite;
+    user-select: none;
+}
+  
+
+
+@keyframes parpadeo{
+    0%{
+        background-color: black;
+    }
+    100%{
+        background-color: transparent;
+    }
+}
+
+
+@keyframes parpadeo2{
+    0%{
+        color: var(--Cuarto-Color);
+    }
+    1%{
+        color: transparent;
+    }
+}

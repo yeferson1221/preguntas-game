@@ -1,0 +1,31 @@
+:root {
+    --Primer-Color: #0a8d50;
+    --Segundo-Color: #41ac07;
+    --Tercer-Color: #69fd14;
+    --Cuarto-Color: #EEEEEE;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background-color: var(--Primer-Color);
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
