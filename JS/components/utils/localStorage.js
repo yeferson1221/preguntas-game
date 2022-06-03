@@ -1,6 +1,6 @@
 const localStorage = () => {
     const storage = window.localStorage;
-    const set = (key, value) =>  storage.setItem(key, JSON.stringify(value));
+    const set = (key, value) => storage.setItem(key, JSON.stringify(value));
     const get = (key) => JSON.parse(storage.getItem(key));
     const remove = (key) => storage.removeItem(key);
     const clear = () => storage.clear();
@@ -15,9 +15,19 @@ const localStorage = () => {
 //Funcion que registra un nuevo record
 const NewScore = (name, score) => {
 
+    function SortArray(a, z) {
+        if (a.name < z.name) { return -1; }
+        if (a.name > z.name) { return 1; }
+        return 0;
+    }
+    var dataOrdenada = localStorage().get("QuizzGame").sort(SortArray);
+
+    console.log(dataOrdenada);
+
     //Data extrae los valores del localStorage
+
     const data = localStorage().get('QuizzGame');
-    
+
     //Se crea un objeto con los datos que vienen como parametro
     const objeto = {
         name: name.toUpperCase(),
@@ -38,4 +48,4 @@ const NewScore = (name, score) => {
     }
 }
 
-export { localStorage , NewScore };
+export { localStorage, NewScore };

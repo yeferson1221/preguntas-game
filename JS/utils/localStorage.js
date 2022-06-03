@@ -1,6 +1,6 @@
 const localStorage = () => {
     const storage = window.localStorage;
-    const set = (key, value) =>  storage.setItem(key, JSON.stringify(value));
+    const set = (key, value) => storage.setItem(key, JSON.stringify(value));
     const get = (key) => JSON.parse(storage.getItem(key));
     const remove = (key) => storage.removeItem(key);
     const clear = () => storage.clear();
@@ -17,7 +17,7 @@ const NewScore = (name, score) => {
 
     //Data extrae los valores del localStorage
     const data = localStorage().get('QuizzGame');
-    
+
     //Se crea un objeto con los datos que vienen como parametro
     const objeto = {
         name: name.toUpperCase(),
@@ -38,4 +38,4 @@ const NewScore = (name, score) => {
     }
 }
 
-export { localStorage , NewScore };
+export { localStorage, NewScore };

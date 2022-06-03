@@ -1,7 +1,7 @@
-import { localStorage , NewScore } from '../utils/localStorage.js';
+import { localStorage, NewScore } from '../utils/localStorage.js';
 import { Score } from './Score.js';
 
-const ModalRecord = (score) => {    
+const ModalRecord = (score) => {
 
     const textName = document.createElement('h3');
     textName.classList.add('text__name');
@@ -17,7 +17,7 @@ const ModalRecord = (score) => {
     button.classList.add('button__name');
     button.textContent = 'Guardar';
     button.addEventListener('click', () => {
-        
+
         const storage = localStorage().get('QuizzGame');
         let nombresNoDisponibles = [];
         if (storage) {
@@ -43,7 +43,7 @@ const ModalRecord = (score) => {
             NewScore(name, score);
             document.getElementById('containerRecord').remove();
             document.getElementById('modalFormContainer').remove();
-            document.getElementById('app').append(Score());
+            document.getElementById('container').append(Score());
         }
     });
 
@@ -51,16 +51,16 @@ const ModalRecord = (score) => {
     const modalForm = document.createElement('div');
     modalForm.classList.add('modal__Form');
     modalForm.id = 'modalForm';
-    modalForm.append( textName, input, button );
+    modalForm.append(textName, input, button);
 
 
     const modalContainer = document.createElement('div');
     modalContainer.classList.add('modal__container');
     modalContainer.id = 'modalFormContainer';
-    modalContainer.append( modalForm );
+    modalContainer.append(modalForm);
 
-    
-    document.body.appendChild( modalContainer );
+
+    document.body.appendChild(modalContainer);
 }
 
 export { ModalRecord };

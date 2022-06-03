@@ -3,12 +3,10 @@ function Home() {
     //TITULO
     const titulo = document.createElement('h1');
     titulo.classList.add('title');
-    titulo.textContent = 'JUEGOS EL YEFER';
-    const circulo = document.createElement('div');
-    circulo.classList.add('circulo');
+    titulo.textContent = 'JUEGOS DE YEFER';
     const tituloContainer = document.createElement('div');
     tituloContainer.classList.add('home__titulo-container');
-    tituloContainer.append(titulo, circulo);
+    tituloContainer.append(titulo);
 
 
     //BOTON PLAY
@@ -22,6 +20,16 @@ function Home() {
     buttonPlay.append(texto, svgContainer);
 
 
+    //SCORE
+    const texto1 = document.createElement('h3');
+    texto1.textContent = 'SCORE';
+    const buttonPlay1 = document.createElement('button');
+    buttonPlay1.classList.add('home__container--button');
+    buttonPlay1.id = 'buttonPlay1';
+    buttonPlay1.append(texto1);
+
+
+
     //SECION DE SONIDO
     const buttonSound = document.createElement('button');
     const soundContainer = document.createElement('div');
@@ -33,9 +41,10 @@ function Home() {
     const containerHome = document.createElement('div');
     containerHome.classList.add('container__home');
     containerHome.id = 'containerHome';
-    containerHome.append(tituloContainer, buttonPlay, soundContainer);
+    containerHome.append(tituloContainer, buttonPlay, buttonPlay1, soundContainer);
 
     return containerHome;
+
 }
 
 export { Home }

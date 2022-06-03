@@ -9,7 +9,7 @@ function AlertIncio() {
             } else {
                 numero.innerHTML = num[i];
             }
-        }, 1000 * i + 1);
+        }, 500 * i + 1);
     }
 
     numero.classList.add('numero');

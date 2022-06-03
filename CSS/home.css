@@ -24,16 +24,9 @@
 }
 
 .home__titulo-container .title {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: bold;
     color: var(--Cuarto-Color);
-}
-
-.home__titulo-container .circulo {
-    width: 90px;
-    height: 90px;
-    border-radius: 90%;
-    animation: changeColor 1s infinite;
 }
 
 
@@ -53,17 +46,25 @@
     cursor: pointer;
 }
 
+#buttonPlay1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 420px;
+    height: 90px;
+    background-color: var(--Tercer-Color);
+    border-radius: 50px;
+    border: none;
+    gap: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
 .home__container--button>h3 {
     font-size: 5rem;
     font-weight: 700;
     color: var(--Cuarto-Color);
     user-select: none;
-}
-
-.home__container--button>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 

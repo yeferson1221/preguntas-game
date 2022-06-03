@@ -8,6 +8,17 @@ import { Score } from "./components/Score.js";
 import { localStorage } from './utils/localStorage.js';
 import { NewRecord } from './components/NewRecord.js';
 
+//
+
+function SortArray(a, z) {
+    if (a.name < z.name) { return -1; }
+    if (a.name > z.name) { return 1; }
+    return 0;
+}
+var dataOrdenada = localStorage().get("QuizzGame");
+
+console.log(dataOrdenada);
+
 
 //Paso los datos para que se ordenen aleatoriamente
 let datos = ramdonNumbers(data);
@@ -18,12 +29,13 @@ container.append(Home());
 
 //Boton de se agarran del DOM
 const buttonPlay = document.getElementById('buttonPlay');
+const buttonPlay1 = document.getElementById('buttonPlay1');
 const containerHome = document.getElementById('containerHome');
 
 //Variables que cambian su valor a lo largo del juego 
 let puntaje = 0; //Respuestas correctas del juego
 let contador = 0; //Contador de preguntas para saber que pregunta se esta mostrando
-const segundos = 100 / 30; //Tiempo de juego en segundos
+const segundos = 100 / 10; //Tiempo de juego en segundos
 let intervalo; //intervalo de tiempo para el juego
 let width = 0; //width que cambia de tamaño que se va a mostrar en la barra de tiempo
 
@@ -84,6 +96,16 @@ buttonPlay.addEventListener('click', () => {
             intervalo = setInterval(tiempo, 1000);
             tiempo();
         }, 6010);
+    }, 100);
+});
+
+buttonPlay1.addEventListener('click', () => {
+    containerHome.remove();
+    let audio = document.getElementById('main');
+    audio.volume = 0.1;
+    audio.play();
+    setTimeout(() => {
+        container.append(Score());
     }, 100);
 });
 
