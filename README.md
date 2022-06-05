@@ -1,4 +1,6 @@
 # preguntas-game
+# MEJORA VER ESTE LINK PARA VER LA PAGINA MONTADA
+# https://629d1c9fc86c7f000833d69f--silly-marzipan-13e8e2.netlify.app/
 
 ## instrucciones
 
