@@ -1,15 +1,21 @@
+/**
+ * [
+ *  funsion contiene la barrad e carga del tiempo de las prefuntas 
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 function TimeBar() {
-    
+
     const colorBarra = document.createElement('div');
     colorBarra.classList.add('barra__tiempo--color');
 
     const barra = document.createElement('div');
     barra.classList.add('barra__tiempo');
     barra.id = 'barra__tiempo';
-    
+
     const barraDeTiempo = document.createElement('div');
     barraDeTiempo.classList.add('barra__tiempo--container');
-    barraDeTiempo.append( colorBarra, barra );
+    barraDeTiempo.append(colorBarra, barra);
 
     return barraDeTiempo;
 }

@@ -1,7 +1,14 @@
 import { ModalRecord } from './ModalRecord.js';
 
+/**
+ * [
+ *  funsion para registrar un nuevo recor 
+ *  Se obtiene el valor actual del tamaño de la pantalla
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const NewRecord = (score) => {
-    //Se obtiene el valor actual del tamaño de la pantalla
+
     const pantallaAncho = window.innerWidth;
 
     const textContainer = document.createElement('h3');

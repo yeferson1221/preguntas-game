@@ -1,5 +1,5 @@
 :root {
-    --Primer-Color: #0a8d50;
+    --Primer-Color: #011b34;
     --Segundo-Color: #41ac07;
     --Tercer-Color: #69fd14;
     --Cuarto-Color: #EEEEEE;
@@ -19,10 +19,10 @@ html {
 body {
     width: 100%;
     height: auto;
-    background-color: var(--Primer-Color);
+    background-image: url("../img/wallhaven-x8ye3z.jpg");
 }
 
-#app {
+#container {
     display: flex;
     justify-content: center;
     width: 100%;

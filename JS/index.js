@@ -8,40 +8,51 @@ import { Score } from "./components/Score.js";
 import { localStorage } from './utils/localStorage.js';
 import { NewRecord } from './components/NewRecord.js';
 
-//
+/**
+ * [
+ *   El index, js  importa casi tdoos los modulos , adicional carga el modulo Home,
+ *   Paso los datos para que se ordenen aleatoriamente,
+ *   Elementos del DOM donde se va a renderizar el juego
+ *   Boton de se agarran del DOM
+ *   Variables que cambian su valor a lo largo del juego 
+ *  
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ * @since [1,0,0]
+ *
+ */
 
-function SortArray(a, z) {
-    if (a.name < z.name) { return -1; }
-    if (a.name > z.name) { return 1; }
-    return 0;
-}
-var dataOrdenada = localStorage().get("QuizzGame");
 
-console.log(dataOrdenada);
-
-
-//Paso los datos para que se ordenen aleatoriamente
 let datos = ramdonNumbers(data);
 
-//Elementos del DOM donde se va a renderizar el juego
+
 const container = document.getElementById('container');
 container.append(Home());
 
-//Boton de se agarran del DOM
+
 const buttonPlay = document.getElementById('buttonPlay');
 const buttonPlay1 = document.getElementById('buttonPlay1');
 const containerHome = document.getElementById('containerHome');
 
-//Variables que cambian su valor a lo largo del juego 
+
 let puntaje = 0; //Respuestas correctas del juego
 let contador = 0; //Contador de preguntas para saber que pregunta se esta mostrando
-const segundos = 100 / 10; //Tiempo de juego en segundos
+const segundos = 100 / 30; //Tiempo de juego en segundos
 let intervalo; //intervalo de tiempo para el juego
 let width = 0; //width que cambia de tamaño que se va a mostrar en la barra de tiempo
 
 
-
-//Funcion que cambia el la barra de tiempo (width), y los segundos restantes
+/**
+ * [
+ *  Funcion que cambia el la barra de tiempo (width), y los segundos restantes.
+ *  tambien Se traen los valores del localStorage,Si el localStorage tiene datos se pone el puntaje mas alto,
+ *  Si el puntaje es mayor o igual al recordActual, se muestra el modal de nuevo record para guardarlo y
+ *  Si no, se muestra los ultimos record
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 function tiempo() {
     let barra = document.getElementById('barra__tiempo');
 
@@ -60,28 +71,29 @@ function tiempo() {
         setTimeout(() => {
             document.getElementById('gameOver').remove();
 
-            //Se traen los valores del localStorage
             const storage = localStorage().get("QuizzGame");
-            //Record actual se iguala a 0 por que no hay record
+
             let recordActual = 1;
-            //Si el localStorage tiene datos se pone el puntaje mas alto
+
             if (storage) {
                 recordActual = storage[0].score;
             }
 
-            //Si el puntaje es mayor o igual al recordActual, se muestra el modal de nuevo record para guardarlo
-            // if (puntaje >= recordActual) {
             if (puntaje >= recordActual) {
                 container.append(NewRecord(puntaje));
             } else {
-                //Si no, se muestra los ultimos record
                 container.append(Score());
             }
         }, 3000);
     }
 }
 
-//Evento del boton de play que cambia el estado de la pagina y comienza el juego
+/**
+ * [
+ *  Evento del boton de play que cambia el estado de la pagina y comienza el juego
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 buttonPlay.addEventListener('click', () => {
     containerHome.remove();
     let audio = document.getElementById('main');
@@ -92,13 +104,18 @@ buttonPlay.addEventListener('click', () => {
         setTimeout(() => {
             document.getElementById('containerAlert').remove();
             container.append(GameArea(datos));
-            //funcion que se ejecuta cada segundo
             intervalo = setInterval(tiempo, 1000);
             tiempo();
         }, 6010);
     }, 100);
 });
 
+/**
+ * [
+ *  Evento del boton de Score que cambia el estado de la pagina y nos manda al Puntaje
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 buttonPlay1.addEventListener('click', () => {
     containerHome.remove();
     let audio = document.getElementById('main');
@@ -109,27 +126,39 @@ buttonPlay1.addEventListener('click', () => {
     }, 100);
 });
 
-
-//Funcion de disminulle el valor del width de la barra de tiempo
+/**
+ * [
+ *  Funcion de disminulle el valor del width de la barra de tiempo, ademas
+ *  Se aumenta el puntaje porque la respuesta es correcta
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const respuestaCorrectaTime = () => {
-    if (width <= 20) {
-        width = 0;
-    } else {
-        width = width - 20;
+        if (width <= 20) {
+            width = 0;
+        } else {
+            width = width - 20;
+        }
+        puntaje++;
     }
-    //Se aumenta el puntaje porque la respuesta es correcta
-    puntaje++;
-}
-
-//Funcion incrementa el valor del width de la barra de tiempo
+    /**
+     * [
+     *  Funcion incrementa el valor del width de la barra de tiempo sumandole un ancho de 10 
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+     */
 const respuestaIncorrectaTime = () => {
     width = width + 10;
 }
 
-//funcion que cambia las preguntas
+/**
+ * [
+ *  funcion que cambia las preguntas
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const CambiarPregunta = () => {
     const pregunta = document.getElementById('pregunta');
-    const imagePreload = document.getElementById('imagePreload');
     const image = document.getElementById('image');
     const option1 = document.getElementById('option1');
     const option2 = document.getElementById('option2');
@@ -140,7 +169,6 @@ const CambiarPregunta = () => {
     let nuevoOrden = ramdonNumbers(datos[contador].opciones);
 
     pregunta.textContent = datos[contador].pregunta;
-    imagePreload.src = datos[contador + 1].image;
     image.src = datos[contador].image;
     option1.textContent = nuevoOrden[0];
     option2.textContent = nuevoOrden[1];
@@ -148,5 +176,10 @@ const CambiarPregunta = () => {
     option4.textContent = nuevoOrden[3];
 }
 
-
+/**
+ * [
+ *  Se exportan  las funsiones respuestaCorrectaTime, respuestaIncorrectaTime, CambiarPregunta, datos 
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 export { respuestaCorrectaTime, respuestaIncorrectaTime, CambiarPregunta, datos };

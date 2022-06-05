@@ -1,3 +1,9 @@
+/**
+ * [
+ *  la funsion la pregunta incorrecta
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const AnswerWrong = () => {
 
     const texto = document.createElement('p');

@@ -1,3 +1,10 @@
+/**
+ * [
+ *  la funsion con la pagina el incio al juego despues de play 
+ *  se muestra  una pagina con LOS ELEMENTOS DE LA ALERTA DE INICIO
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 function AlertIncio() {
 
     const numero = document.createElement('h2');

@@ -1,3 +1,9 @@
+/**
+ * [
+ *  la funsion la pregunta correcta
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const AnswerCorrect = () => {
 
     const texto = document.createElement('p');

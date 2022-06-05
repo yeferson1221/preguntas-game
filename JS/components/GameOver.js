@@ -1,3 +1,10 @@
+/**
+ * [
+ *  la funsion con  interfas de gameOver tiene sis divs 
+ *  con sus clases las ales modifico en el css y exportamos GameOver al final
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 function GameOver() {
 
     const gameOverText1 = document.createElement('h3');

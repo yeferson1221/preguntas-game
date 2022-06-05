@@ -1,6 +1,13 @@
 import { localStorage, NewScore } from '../utils/localStorage.js';
 import { Score } from './Score.js';
 
+/**
+ * [
+ *  la funsion contiene todo la interfas de la pagina para mirar la lista de ganadores con su puntaje 
+ *  se toma del localStorage() y se  muestar en  pantalla
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 const ModalRecord = (score) => {
 
     const textName = document.createElement('h3');

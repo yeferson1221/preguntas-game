@@ -1,3 +1,14 @@
+/**
+ * [
+ *  contiene el funsion que muestra todo el home la pagina de inicio de juego
+ *  titulo
+ *  boton jugar
+ *  boton de puntaje
+ *  secion de sonido
+ *  contenedor con elementos home
+ *
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com]
+ */
 function Home() {
 
     //TITULO
@@ -9,7 +20,7 @@ function Home() {
     tituloContainer.append(titulo);
 
 
-    //BOTON PLAY
+
     const texto = document.createElement('h3');
     texto.textContent = 'JUGAR YA';
     const svgContainer = document.createElement('div');
@@ -20,7 +31,7 @@ function Home() {
     buttonPlay.append(texto, svgContainer);
 
 
-    //SCORE
+
     const texto1 = document.createElement('h3');
     texto1.textContent = 'SCORE';
     const buttonPlay1 = document.createElement('button');
@@ -30,14 +41,14 @@ function Home() {
 
 
 
-    //SECION DE SONIDO
+
     const buttonSound = document.createElement('button');
     const soundContainer = document.createElement('div');
     soundContainer.classList.add('home__container--sound');
     soundContainer.append(buttonSound);
 
 
-    //CONTENEDOR CON LOS ELEMENTOS DEL HOME
+
     const containerHome = document.createElement('div');
     containerHome.classList.add('container__home');
     containerHome.id = 'containerHome';
